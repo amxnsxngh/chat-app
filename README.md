@@ -1,93 +1,64 @@
-WebSocket Chat Application
+📡 WebSocket Chat Application
 
-A simple real-time chat application built using Node.js, WebSockets, and React.
+A real-time chat application using WebSockets, built with Node.js for the backend and React for the frontend.
 
-Features
+🚀 Features
 
-Real-time messaging using WebSockets
+Real-time bidirectional messaging
 
 Broadcast messages to all connected clients
 
-Displays timestamps for each message
+WebSocket server using websocket module
 
-Handles client connections and disconnections
+React-based frontend for user interaction
 
-Prerequisites
+📁 Project Structure
 
-Ensure you have the following installed:
+📦 websocket-chat-app
+├── 📂 backend
+│   ├── server.js (WebSocket server)
+├── 📂 frontend
+│   ├── src
+│   │   ├── App.js (React frontend)
+│   │   ├── App.css (Styles)
+│   ├── public
+│   ├── package.json
+├── README.md
 
-Node.js
+🛠️ Installation & Setup
 
-npm or yarn
+1️⃣ Clone the repository
 
-Installation
+ git clone https://github.com/your-username/websocket-chat-app.git
 
-Clone the repository
+2️⃣ Install dependencies
 
-git clone https://github.com/your-username/websocket-chat-app.git
-cd websocket-chat-app
+Backend
 
-Install dependencies
+ cd backend
+ npm install
 
-Backend (WebSocket Server)
+Frontend
 
-cd server
-npm install
+ cd frontend
+ npm install
 
-Frontend (React App)
+3️⃣ Start the application
 
-cd client
-npm install
+Run the WebSocket server
 
-Usage
+ node server.js
 
-Start the WebSocket Server
+Start the React frontend
 
-cd server
-node server.js
+ npm start
 
-By default, the server runs on port 3001.
+The frontend will run on http://localhost:3000 and connect to the WebSocket server at ws://localhost:3001.
 
-Start the React Client
+⚠️ Troubleshooting
 
-cd client
-npm start
+Port Already in Use: If you see Something is already running on port 3000, press Y to use another port or stop the running process using:
 
-By default, the React app runs on port 3000. If port 3000 is occupied, you may be prompted to use another port.
+npx kill-port 3000
 
-Project Structure
-
-websocket-chat-app/
-│── server/                # WebSocket Server (Node.js)
-│   ├── server.js          # WebSocket server implementation
-│   ├── package.json       # Backend dependencies
-│
-│── client/                # Frontend (React.js)
-│   ├── src/
-│   │   ├── App.js         # Main React component
-│   │   ├── index.js       # React entry point
-│   ├── package.json       # Frontend dependencies
-│
-└── README.md              # Project documentation
-
-Troubleshooting
-
-"Something is already running on port 3000."
-
-If you see this message, either:
-
-Press 'Y' to run React on another port.
-
-Kill the process using the port:
-
-lsof -i :3000  # Find process ID (PID) on macOS/Linux
-kill -9 <PID>  # Kill process
-
-netstat -ano | findstr :3000  # Find PID on Windows
-taskkill /PID <PID> /F        # Kill process
-
-"WebSocket connection failed."
-
-Ensure the WebSocket server is running on port 3001.
-
-Check if the React client is connecting to the correct WebSocket URL (ws://localhost:3001).
+WebSocket Not Connecting: Ensure the backend is running and accessible at ws://localhost:3001.

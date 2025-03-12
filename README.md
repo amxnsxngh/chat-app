@@ -1,70 +1,93 @@
-# Getting Started with Create React App
+WebSocket Chat Application
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+A simple real-time chat application built using Node.js, WebSockets, and React.
 
-## Available Scripts
+Features
 
-In the project directory, you can run:
+Real-time messaging using WebSockets
 
-### `npm start`
+Broadcast messages to all connected clients
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+Displays timestamps for each message
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+Handles client connections and disconnections
 
-### `npm test`
+Prerequisites
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+Ensure you have the following installed:
 
-### `npm run build`
+Node.js
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+npm or yarn
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+Installation
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+Clone the repository
 
-### `npm run eject`
+git clone https://github.com/your-username/websocket-chat-app.git
+cd websocket-chat-app
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+Install dependencies
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+Backend (WebSocket Server)
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+cd server
+npm install
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+Frontend (React App)
 
-## Learn More
+cd client
+npm install
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+Usage
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+Start the WebSocket Server
 
-### Code Splitting
+cd server
+node server.js
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+By default, the server runs on port 3001.
 
-### Analyzing the Bundle Size
+Start the React Client
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+cd client
+npm start
 
-### Making a Progressive Web App
+By default, the React app runs on port 3000. If port 3000 is occupied, you may be prompted to use another port.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+Project Structure
 
-### Advanced Configuration
+websocket-chat-app/
+│── server/                # WebSocket Server (Node.js)
+│   ├── server.js          # WebSocket server implementation
+│   ├── package.json       # Backend dependencies
+│
+│── client/                # Frontend (React.js)
+│   ├── src/
+│   │   ├── App.js         # Main React component
+│   │   ├── index.js       # React entry point
+│   ├── package.json       # Frontend dependencies
+│
+└── README.md              # Project documentation
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+Troubleshooting
 
-### Deployment
+"Something is already running on port 3000."
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+If you see this message, either:
 
-### `npm run build` fails to minify
+Press 'Y' to run React on another port.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+Kill the process using the port:
+
+lsof -i :3000  # Find process ID (PID) on macOS/Linux
+kill -9 <PID>  # Kill process
+
+netstat -ano | findstr :3000  # Find PID on Windows
+taskkill /PID <PID> /F        # Kill process
+
+"WebSocket connection failed."
+
+Ensure the WebSocket server is running on port 3001.
+
+Check if the React client is connecting to the correct WebSocket URL (ws://localhost:3001).

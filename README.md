@@ -12,19 +12,6 @@ WebSocket server using websocket module
 
 React-based frontend for user interaction
 
-📁 Project Structure
-
-📦 websocket-chat-app
-├── 📂 backend
-│   ├── server.js (WebSocket server)
-├── 📂 frontend
-│   ├── src
-│   │   ├── App.js (React frontend)
-│   │   ├── App.css (Styles)
-│   ├── public
-│   ├── package.json
-├── README.md
-
 🛠️ Installation & Setup
 
 1️⃣ Clone the repository

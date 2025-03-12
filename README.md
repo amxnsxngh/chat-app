@@ -1,6 +1,6 @@
 📡 WebSocket Chat Application
 
-A real-time chat application using WebSockets, built with Node.js for the backend and React for the frontend.
+This is a real-time chat application built using React for the frontend and WebSocket (Node.js & WebSocket library) for the backend. It enables multiple users to connect, send messages, and receive messages instantly. The server broadcasts messages to all connected clients except the sender.
 
 🚀 Features
 
